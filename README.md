@@ -20,6 +20,6 @@ u-argo.com 도메인을 GitHub Pages에 연결했다면 `https://u-argo.com/priv
 
 ## 수정 시 참고
 
-- **delete-account.html**: `support@u-argo.com` 및 Google 폼 링크(`https://forms.gle/YOUR_GOOGLE_FORM_ID`)를 실제 연락처·폼 URL로 교체하세요.
+- **delete-account.html**: 이메일은 `uargoofficial@gmail.com`으로 설정되어 있습니다. Google 폼 링크(`https://forms.gle/YOUR_GOOGLE_FORM_ID`)는 실제 폼 URL로 교체하세요.
 - **privacy.html**: Notion에 있는 개인정보처리방침 원문이 있다면 해당 내용으로 섹션을 보완·대체할 수 있습니다.
 - 시행일·최종 수정일은 각 문서 상단의 meta 영역에서 수정하세요.
