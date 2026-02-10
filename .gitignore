@@ -1,0 +1,6 @@
+# 이 폴더를 GitHub Pages 저장소 루트에 복사할 때 사용합니다.
+# .well-known 은 dot 으로 시작해 일부 환경에서 무시될 수 있으므로,
+# 아래 규칙으로 반드시 커밋되도록 합니다.
+
+!.well-known/
+!.well-known/*
