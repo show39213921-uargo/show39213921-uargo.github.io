@@ -10,6 +10,8 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="u-argo.com">
   <link rel="canonical" href="https://u-argo.com/">
+  <!-- Android 앱 연결 (검색 노출·App Links) -->
+  <link rel="alternate" href="android-app://com.dreamshare.uragoai/https/u-argo.com">
   <!-- Open Graph (페이스북·카카오 등) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://u-argo.com/">
@@ -115,7 +117,9 @@
       height: 160px;
       object-fit: contain;
       margin-bottom: 1.5rem;
-      filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.3));
+      filter: drop-shadow(0 0 24px rgba(201, 162, 39, 0.4));
+      border: 2px solid rgba(201, 162, 39, 0.35);
+      border-radius: 24px;
     }
     .hero h1 {
       font-size: clamp(1.5rem, 4vw, 2rem);
@@ -162,18 +166,24 @@
     }
     .feature-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(201, 162, 39, 0.25);
     }
     .feature-icon {
       width: 56px;
       height: 56px;
       margin: 0 auto 1rem;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      background: rgba(201, 162, 39, 0.15);
+      border: 1px solid rgba(201, 162, 39, 0.4);
       border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
+      color: var(--gold);
+    }
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
     }
     .feature-card h3 {
       font-size: 1.15rem;
@@ -186,6 +196,7 @@
       line-height: 1.6;
       margin: 0;
     }
+    .feature-card p strong { color: var(--white); }
 
     /* Screenshot */
     .screens-section { padding-top: 1rem; }
@@ -202,6 +213,11 @@
       overflow: hidden;
       border: 1px solid var(--navy-lighter);
       box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .screenshot-item:hover {
+      border-color: rgba(201, 162, 39, 0.4);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 0 1px rgba(201, 162, 39, 0.2);
     }
     .screenshot-item img {
       width: 100%;
@@ -257,32 +273,32 @@
       <h2 class="section-title">꿈 기록과 <span>AI 해몽</span>을 한곳에서</h2>
       <div class="features">
         <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">✨</div>
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/><path d="M6 16l1.2 3.6L11 21l-3.8-1.2L6 16zM18 16l-1.2 3.6L13 21l3.8-1.2L18 16z"/></svg></div>
           <h3>AI 꿈 해몽</h3>
           <p>꿈 일기를 적으면 AI가 상징과 맥락을 분석해 의미를 풀어줍니다. 꿈 기록이 더 깊은 이해로 이어집니다.</p>
         </article>
         <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">🖼️</div>
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 16l5-5 4 4 5-6 4 4v5H3z"/></svg></div>
           <h3>DALL-E 3 이미지 생성</h3>
           <p>꿈 속 장면을 텍스트로 설명하면 DALL-E 3가 이미지로 그려줍니다. 꿈을 시각적으로 남겨보세요.</p>
         </article>
         <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">📊</div>
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 18v-6h4v6H4zm6 0V8h4v10h-4zm6 0V4h4v14h-4z"/></svg></div>
           <h3>감정 통계</h3>
           <p>꿈에 남긴 감정·기호를 모아 통계로 보여줍니다. 무의식의 패턴을 한눈에 파악할 수 있습니다.</p>
         </article>
         <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">💎</div>
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4 8l4 4-4 4 8 8 8-8-4-4 4-4-8-6z"/></svg></div>
           <h3>하루 3회 무료 + 광고 보상</h3>
           <p>AI 해몽·이미지 생성은 하루 무료 3회부터. 광고를 보면 추가 기회를 얻을 수 있어 꿈 기록을 더 이어갈 수 있습니다.</p>
         </article>
         <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">🌙</div>
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
           <h3>친구에게 꿈 공유</h3>
           <p>선택한 친구에게만 꿈을 공유할 수 있습니다. 자주 공유하는 친구를 등록해 퀵 공유하고, 공유 시 실시간 알림도 보냅니다.</p>
         </article>
         <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">📋</div>
+          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
           <h3>꿈 리포트 생성</h3>
           <p>주간 진단과 월간 꿈 리포트로 이번 주·이번 달 무의식을 요약합니다. 감정 흐름, 키워드, 추천 컬러까지 한눈에.</p>
         </article>
