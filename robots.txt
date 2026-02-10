@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dreamshare (꿈의나라) / u-argo.com
 # Google 서치콘솔 색인용
 
@@ -9,3 +10,16 @@ Allow: /.well-known/
 
 # 사이트맵 (색인 대상 URL 목록)
 Sitemap: https://u-argo.com/sitemap.xml
+=======
+# Dreamshare (꿈의나라) / u-argo.com
+# Google 서치콘솔 색인용
+
+User-agent: *
+Allow: /
+
+# .well-known 등 중요 리소스도 크롤 허용
+Allow: /.well-known/
+
+# 사이트맵 (색인 대상 URL 목록)
+Sitemap: https://u-argo.com/sitemap.xml
+>>>>>>> master
