@@ -1,31 +1,279 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dreamshare (꿈의나라) - AI 꿈 해몽 & 기록</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; text-align: center; background-color: #f8f9fa; }
-        h1 { color: #1e3a5f; margin-bottom: 10px; }
-        p { color: #666; font-size: 1.1em; }
-        .download-btn { display: inline-block; background: #1e3a5f; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin: 30px 0; transition: background 0.3s; }
-        .download-btn:hover { background: #132743; }
-        footer { margin-top: 60px; padding-top: 20px; border-top: 1px dashed #ccc; font-size: 0.9em; }
-        footer a { color: #666; margin: 0 10px; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dreamshare(꿈의나라) – AI 해몽, 꿈 기록, 꿈 리포트. 하루 3회 무료 + 광고로 추가 기회. 친구에게 꿈 공유, DALL-E 3 이미지, 감정 통계까지 한곳에서.">
+  <meta name="keywords" content="AI 해몽, 꿈 기록, 꿈 일기, 꿈 해석, 꿈 리포트, Dreamshare, 꿈의나라, 무의식">
+  <title>Dreamshare (꿈의나라) – AI 꿈 해몽 & 꿈 기록 앱</title>
+  <style>
+    :root {
+      --navy: #0a192f;
+      --navy-light: #112240;
+      --navy-lighter: #233554;
+      --white: #e6f1ff;
+      --gold: #c9a227;
+      --gold-light: #e4c35d;
+      --muted: #8892b0;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--white);
+      background: var(--navy);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 별빛 배경 */
+    .stars-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(180deg, #0a192f 0%, #0d2137 40%, #0a192f 100%);
+      pointer-events: none;
+    }
+    .stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 50px 160px, rgba(255,255,255,0.35), transparent),
+        radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.25), transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.2), transparent);
+      background-size: 200px 200px;
+      animation: twinkle 4s ease-in-out infinite;
+      opacity: 0.9;
+    }
+    .stars::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 100px 50px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 200px 150px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 300px 100px, rgba(255,255,255,0.35), transparent);
+      background-size: 350px 350px;
+      animation: twinkle 3s ease-in-out infinite reverse;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 0.6; }
+    }
+
+    .page { position: relative; z-index: 1; }
+
+    /* Hero */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .hero-logo {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.3));
+    }
+    .hero h1 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .hero .tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--gold);
+      font-weight: 500;
+      max-width: 480px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Feature */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .section-title {
+      font-size: clamp(1.35rem, 3vw, 1.6rem);
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .section-title span { color: var(--gold); }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--navy-light);
+      border: 1px solid var(--navy-lighter);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+    .feature-card h3 {
+      font-size: 1.15rem;
+      color: var(--white);
+      margin: 0 0 0.5rem;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Screenshot */
+    .screens-section { padding-top: 1rem; }
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      justify-items: center;
+    }
+    .screenshot-item {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--navy-lighter);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--navy-lighter);
+      text-align: center;
+    }
+    footer p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 0 0 1rem;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .footer-nav a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-nav a:hover { text-decoration: underline; color: var(--gold-light); }
+
+    @media (max-width: 600px) {
+      .hero { min-height: 60vh; padding: 2rem 1rem 3rem; }
+      .hero-logo { width: 120px; height: 120px; }
+      .screenshot-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <h1>🌙 Dreamshare (꿈의나라)</h1>
-    <p>당신의 어젯밤 무의식, 오늘 어떤 의미가 될까요?<br>AI가 분석하는 정확한 꿈 해몽과 일기 기록을 경험해보세요.</p>
-    
-    <a href="https://play.google.com/store/apps/details?id=com.dreamshare.uragoai" class="download-btn">Google Play에서 다운로드</a>
+  <div class="stars-wrap">
+    <div class="stars"></div>
+  </div>
+  <main class="page">
+    <section class="hero">
+      <img class="hero-logo" src="assets/logo.png" alt="Dreamshare 꿈의나라 로고">
+      <h1>Dreamshare · 꿈의나라</h1>
+      <p class="tagline">어젯밤 당신의 무의식, 오늘 어떤 의미가 될까요?</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">꿈 기록과 <span>AI 해몽</span>을 한곳에서</h2>
+      <div class="features">
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">✨</div>
+          <h3>AI 꿈 해몽</h3>
+          <p>꿈 일기를 적으면 AI가 상징과 맥락을 분석해 의미를 풀어줍니다. 꿈 기록이 더 깊은 이해로 이어집니다.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🖼️</div>
+          <h3>DALL-E 3 이미지 생성</h3>
+          <p>꿈 속 장면을 텍스트로 설명하면 DALL-E 3가 이미지로 그려줍니다. 꿈을 시각적으로 남겨보세요.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">📊</div>
+          <h3>감정 통계</h3>
+          <p>꿈에 남긴 감정·기호를 모아 통계로 보여줍니다. 무의식의 패턴을 한눈에 파악할 수 있습니다.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">💎</div>
+          <h3>하루 3회 무료 + 광고 보상</h3>
+          <p>AI 해몽·이미지 생성은 하루 무료 3회부터. 광고를 보면 추가 기회를 얻을 수 있어 꿈 기록을 더 이어갈 수 있습니다.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🌙</div>
+          <h3>친구에게 꿈 공유</h3>
+          <p>선택한 친구에게만 꿈을 공유할 수 있습니다. 자주 공유하는 친구를 등록해 퀵 공유하고, 공유 시 실시간 알림도 보냅니다.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">📋</div>
+          <h3>꿈 리포트 생성</h3>
+          <p>주간 진단과 월간 꿈 리포트로 이번 주·이번 달 무의식을 요약합니다. 감정 흐름, 키워드, 추천 컬러까지 한눈에.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section screens-section">
+      <h2 class="section-title">앱 스크린샷</h2>
+      <div class="screenshot-grid">
+        <div class="screenshot-item"><img src="assets/screen1.png" alt="Dreamshare 꿈 기록 화면"></div>
+        <div class="screenshot-item"><img src="assets/screen2.png" alt="AI 꿈 해몽 결과 화면"></div>
+        <div class="screenshot-item"><img src="assets/screen3.png" alt="감정 통계 화면"></div>
+      </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 u-argo. All rights reserved.</p>
+      <p>Dreamshare(꿈의나라) – AI 해몽, 꿈 기록, 꿈 리포트, 친구 공유까지. 하루 3회 무료와 광고 보상으로 무의식을 탐험하세요.</p>
+      <nav class="footer-nav">
         <a href="privacy.html">개인정보처리방침</a>
         <a href="terms.html">이용약관</a>
-        <a href="delete-account.html">계정삭제요청</a>
+        <a href="delete-account.html">계정 삭제 요청</a>
+      </nav>
     </footer>
+  </main>
 </body>
 </html>
