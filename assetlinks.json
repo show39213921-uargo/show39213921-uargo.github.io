@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.dreamshare.uragoai",
+      "sha256_cert_fingerprints": [
+        "A5ACEA5175B1D787D0EC8BA3D3CA6A0206B535F78CEB81D010BE8E265A5C003F"
+      ]
+    }
+  }
+]
