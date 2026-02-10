@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Google 서치 콘솔 등록용 사이트맵 (Sitemap)
+  - 제출 URL: https://u-argo.com/sitemap.xml
+  - 구조: <urlset> 안에 페이지별 <url> → <loc>, <lastmod>, <changefreq>, <priority>
+  - 최대 50,000 URL / 50MB. 추가 페이지는 <url> 블록 복사 후 loc 등만 수정.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://u-argo.com/</loc>

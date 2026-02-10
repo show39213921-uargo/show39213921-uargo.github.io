@@ -13,6 +13,7 @@ Google Play 정책 준수를 위한 웹 페이지입니다.
 - `delete-account.html` — 계정 삭제 요청  
 - `assets/` — 로고·스크린샷 이미지 (logo.png, screen1.png 등, `assets/README.md` 참고)
 - `.well-known/assetlinks.json` — Android 앱 연결용 Digital Asset Links (Google 검색·App Links 인정용)
+- `.nojekyll` — Jekyll 비활성화용 빈 파일. 없으면 `.well-known` 등이 GitHub Pages에서 404가 납니다. 루트에 포함해서 올리세요.
 - `robots.txt` — 크롤러 허용 규칙 (Google 서치콘솔 색인용)
 - `sitemap.xml` — 색인할 URL 목록 (서치콘솔에서 참조)
 
@@ -47,6 +48,7 @@ Google Play 정책 준수를 위한 웹 페이지입니다.
 - `delete-account.html` — 계정 삭제 요청  
 - `assets/` — 로고·스크린샷 이미지 (logo.png, screen1.png 등, `assets/README.md` 참고)
 - `.well-known/assetlinks.json` — Android 앱 연결용 Digital Asset Links (Google 검색·App Links 인정용)
+- `.nojekyll` — Jekyll 비활성화용 빈 파일. 없으면 `.well-known` 등이 GitHub Pages에서 404가 납니다. 루트에 포함해서 올리세요.
 - `robots.txt` — 크롤러 허용 규칙 (Google 서치콘솔 색인용)
 - `sitemap.xml` — 색인할 URL 목록 (서치콘솔에서 참조)
 
